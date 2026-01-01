@@ -19,15 +19,15 @@ export default function Home() {
       <h1>track yor application and resume heading</h1>
       <h2>review your resume here</h2>
     
-    </section>
    
       {resumes.length  > 0 && (
-      <div className="resumes-section ">
+        <div className="resumes-section ">
        {  resumes.map( (resume)=> (
-      <ResumeCard key="resume.id" resume={resume} />
-      
-         ))} </div>
+         <ResumeCard key="resume.id" resume={resume} />
+         
+        ))} </div>
       )}
+      </section>
   </main>
 
 }
