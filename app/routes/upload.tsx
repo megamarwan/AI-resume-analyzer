@@ -8,13 +8,16 @@ import { convertPdfToImage } from '~/lib/pdfToImage/pdfToImage'
 import { usePuterStore } from '~/lib/puter'
 import { generateUUID } from '~/lib/utils'
 
-
+import { Navigate } from 'react-router'
+import { useNavigate } from 'react-router'
 
 const UploadPage = () => { // Renamed component for standard practice
     const [isProcessing, setProcessing] = useState(false);
     const { fs, auth, ai, kv } = usePuterStore();
     const [statusText, setStatusText] = useState('');
     const [file, setFile] = useState<File | null>(null);
+    const navigate = useNavigate()
+    
 
     // Function to handle the file passed up from FileUpLoader
     const handleFileSelect = (selectedFile: File | null) => {
@@ -64,6 +67,7 @@ const UploadPage = () => { // Renamed component for standard practice
         await kv.set(`resume${uuid}`, JSON.stringify(data))
         setStatusText('analysis complete')
         console.log(data)
+        navigate(`/resume/${uuid}`)
 
 
     }

@@ -34,6 +34,7 @@ export default [
     // Explanation: When a user visits '/upload', the component defined in 
     // 'routes/upload.tsx' will be rendered.
     route('/upload' , 'routes/upload.tsx'),
+    route('/resume/:id', 'routes/resume.tsx'),
 
 // The `satisfies RouteConfig` ensures the structure of the array matches the
 // `RouteConfig` type. This provides strong type-checking at compile time
