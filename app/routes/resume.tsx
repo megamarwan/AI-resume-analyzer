@@ -3,6 +3,9 @@ import { useNavigate, useParams } from 'react-router'
 import { Link } from 'react-router'
 import { usePuterStore } from '~/lib/puter'
 import { useState } from 'react'
+// import { Details} from '~/components/Details'
+import { Summary } from '~/components/Summary'
+// import { ATS } from '~/components/ATS'
 
 export const meta = () => {
     [
@@ -16,7 +19,7 @@ const resume = () => {
     const { auth, isLoading, fs, kv, } = usePuterStore();
     const [imageUrl, setImageUrl] = useState('')
     const [resumeUrl, setResumeUrl] = useState('')
-    const [feedback, setFeedback] = useState('')
+    const [feedback, setFeedback] = useState()
     const navigate = useNavigate()
     console.log(`${id}`)
 
@@ -69,8 +72,9 @@ const resume = () => {
                     <h2 className='text-4xl !text-black font-bold'>resume review</h2> 
                     {feedback? ( <div className=' flex flex-col gap8 animate-in fade-in duration-1000' >
                         <Summary feedback = {feedback}/>
-                        <ATS score={} suggestion = { } />
-                        <Details feedback={feedback}/> summary ATS details</div>): <img src='images/resume-scan-2.gif' className=' w-full h-full' /> }
+                        {/* <ATS score={} suggestion = { } /> */}
+                        {/* <Details feedback={feedback}/>  */}
+                        summary ATS details</div>): <img src='images/resume-scan-2.gif' className=' w-full h-full' /> }
                         
                 </section>
             </div>
